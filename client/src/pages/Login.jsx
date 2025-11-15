@@ -25,7 +25,7 @@ const Login = () => {
       localStorage.setItem("token", data.token);
       toast.success(data.message);
     } catch (error) {
-      toast(error?.response?.data.message);
+      toast(error?.response?.data.message || error.message);
     }
   };
 
