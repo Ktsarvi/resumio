@@ -33,7 +33,7 @@ export const deleteResume = async (req, res) => {
     await Resume.findOneAndDelete({ userId, _id: resumeId });
 
     // return success message
-    return res.status(201).json({ message: "Resume deleted successfully" });
+    return res.status(200).json({ message: "Resume deleted successfully" });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
@@ -88,7 +88,12 @@ export const updateResume = async (req, res) => {
     const { resumeId, resumeData, removeBackground } = req.body;
     const image = req.file;
 
-    let resumeDataCopy = JSON.parse(resumeData);
+    let resumeDataCopy;
+    if (typeof resumeData === "string") {
+      resumeDataCopy = JSON.parse(resumeData);
+    } else {
+      resumeDataCopy = structuredClone(resumeData);
+    }
 
     if (image) {
       const imageBufferData = fs.createReadStream(image.path);
@@ -100,7 +105,7 @@ export const updateResume = async (req, res) => {
         transformation: {
           pre:
             "w-300,h-300,fo-face,z-0.75" +
-            (removeBackground ? ",e.bgremove" : ""),
+            (removeBackground ? ",e-bgremove" : ""),
         },
       });
 

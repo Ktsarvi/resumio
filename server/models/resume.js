@@ -46,8 +46,7 @@ const resumeSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true },
-  { minimize: false }
+  { timestamps: true, minimize: false }
 );
 
 const Resume = mongoose.model("Resume", resumeSchema);
