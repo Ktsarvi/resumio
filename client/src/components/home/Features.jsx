@@ -1,17 +1,14 @@
 import React from "react";
-import { Zap } from "lucide-react";
+import { Bolt } from "lucide-react";
 import Title from "./Title";
 
 const Features = () => {
   const [isHover, setIsHover] = React.useState(false);
 
   return (
-    <div
-      id="features"
-      className="flex flex-col items-center my-10 scroll-mt-12"
-    >
-      <div className="flex items-center gap-2 text-sm text-green-600 bg-green-400/10 rounded-full px-6 py-1.5">
-        <Zap width={14} />
+    <div id="features" className="flex flex-col items-center scroll-mt-12">
+      <div className="flex items-center gap-2 text-sm text-purple-600 bg-purple-400/10 rounded-full px-6 py-1.5">
+        <Bolt width={14} />
         <span>Simple Process</span>
       </div>
 
@@ -58,10 +55,11 @@ const Features = () => {
               </svg>
               <div className="space-y-2">
                 <h3 className="text-base font-semibold text-slate-700">
-                  Real-Time Analytics
+                  AI Powered
                 </h3>
                 <p className="text-sm text-slate-600 max-w-xs">
-                  Get instant insights into your finances with live dashboards.
+                  AI Powered to help you to make a professional resume in
+                  minutes
                 </p>
               </div>
             </div>
@@ -85,10 +83,10 @@ const Features = () => {
               </svg>
               <div className="space-y-2">
                 <h3 className="text-base font-semibold text-slate-700">
-                  Bank-Grade Security
+                  Real-Time Changes
                 </h3>
                 <p className="text-sm text-slate-600 max-w-xs">
-                  End-to-end encryption, 2FA, compliance with GDPR standards.
+                  Real time changes to see how your resume looks
                 </p>
               </div>
             </div>
@@ -113,11 +111,10 @@ const Features = () => {
               </svg>
               <div className="space-y-2">
                 <h3 className="text-base font-semibold text-slate-700">
-                  Customizable Reports
+                  Download
                 </h3>
                 <p className="text-sm text-slate-600 max-w-xs">
-                  Export professional, audit-ready financial reports for tax or
-                  internal review.
+                  Download your resume for free or share with your friends
                 </p>
               </div>
             </div>

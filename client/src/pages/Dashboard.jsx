@@ -1,11 +1,10 @@
 import {
-  FilePenLineIcon,
+  FileEdit,
+  FolderUp,
   LoaderCircleIcon,
   PencilIcon,
   PlusIcon,
   TrashIcon,
-  UploadCloud,
-  UploadCloudIcon,
   XIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -157,7 +156,7 @@ const Dashboard = () => {
             onClick={() => setShowUploadResume(true)}
             className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border border-dashed border-slate-300 group hover:border-indigo-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
           >
-            <UploadCloudIcon className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-purple-300 to-purple-500 text-white rounded-full" />
+            <FolderUp className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-purple-300 to-purple-500 text-white rounded-full" />
             <p className="text-sm group-hover:text-purple-600 transition-all duration-300">
               Upload Existing Resume
             </p>
@@ -179,7 +178,7 @@ const Dashboard = () => {
                   borderColor: baseColor + "40",
                 }}
               >
-                <FilePenLineIcon
+                <FileEdit
                   className="size-7 group-hover:scale-105 transition-all"
                   style={{ color: baseColor }}
                 />
@@ -232,11 +231,11 @@ const Dashboard = () => {
                 value={title}
                 type="text"
                 placeholder="Enter resume title"
-                className="w-full px-4 py-2 mb-4 focus:border-green-600 ring-green-600"
+                className="w-full px-4 py-2 mb-4 focus:border-purple-600 ring-purple-600"
                 required
               />
 
-              <button className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+              <button className="w-full py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors">
                 Create Resume
               </button>
               <XIcon
@@ -266,7 +265,7 @@ const Dashboard = () => {
                 value={title}
                 type="text"
                 placeholder="Enter resume title"
-                className="w-full px-4 py-2 mb-4 focus:border-green-600 ring-green-600"
+                className="w-full px-4 py-2 mb-4 focus:border-purple-600 ring-purple-600"
                 required
               />
               <div>
@@ -275,12 +274,12 @@ const Dashboard = () => {
                   className="block text-sm text-slate-700"
                 >
                   Select File
-                  <div className="flex flex-col items-center justify-center gap-2 border group text-slate-400 border-slate-400 border-dashed rounded-md p-4 py-10 my-4 hover:border-green-500 hover:text-green-700 cursor-pointer transition-colors">
+                  <div className="flex flex-col items-center justify-center gap-2 border group text-slate-400 border-slate-400 border-dashed rounded-md p-4 py-10 my-4 hover:border-purple-500 hover:text-purple-700 cursor-pointer transition-colors">
                     {resume ? (
-                      <p className="text-green-700">{resume.name}</p>
+                      <p className="text-purple-700">{resume.name}</p>
                     ) : (
                       <>
-                        <UploadCloud className="size-14 stroke-1 " />
+                        <FolderUp className="size-14 stroke-1" />
                         <p>Upload Resume</p>
                       </>
                     )}
@@ -298,7 +297,7 @@ const Dashboard = () => {
               </div>
               <button
                 disabled={isLoading}
-                className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors flex items-center justify-center gap-2"
               >
                 {isLoading && (
                   <LoaderCircleIcon className="size-4 animate-spin text-white" />
@@ -332,11 +331,11 @@ const Dashboard = () => {
                 value={title}
                 type="text"
                 placeholder="Enter resume title"
-                className="w-full px-4 py-2 mb-4 focus:border-green-600 ring-green-600"
+                className="w-full px-4 py-2 mb-4 focus:border-purple-600 ring-purple-600"
                 required
               />
 
-              <button className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+              <button className="w-full py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors">
                 Edit Title
               </button>
               <XIcon
