@@ -20,7 +20,7 @@ const HeroSection = () => {
         {/* Navbar */}
         <nav className="z-50 flex items-center justify-between w-full py-4 px-6 md:px-16 lg:px-24 xl:px-40 text-sm">
           <a href="#">
-            <img src="/logo.svg" alt="logo" className="h-11 w-auto" />
+            <img src="/logo1.svg" alt="logo" className="h-11 w-auto pt-2" />
           </a>
 
           <div className="hidden md:flex items-center gap-8 transition duration-500 text-slate-800">
@@ -158,15 +158,6 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-      <style>
-        {`
-                    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-                    * {
-                        font-family: 'Poppins', sans-serif;
-                    }
-                `}
-      </style>
     </>
   );
 };

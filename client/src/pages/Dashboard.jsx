@@ -139,80 +139,85 @@ const Dashboard = () => {
     <div>
       <div className="max-w-7xl mx-auto px-4 py-8">
         <p className="text-2xl font-medium mb-6 bg-linear-to-r from-slate-600 to-slate-700 bg-clip-text text-transparent sm:hidden">
-          Welcome, Joe Doe
+          Welcome, {user?.name}
         </p>
 
         <div className="flex gap-4">
-          <button
-            onClick={() => setShowCreateResume(true)}
-            className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border border-dashed border-slate-300 group hover:border-indigo-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
-          >
-            <PlusIcon className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-indigo-300 to-indigo-500 text-white rounded-full" />
-            <p className="text-sm group-hover:text-indigo-600 transition-all duration-300">
-              Create Resume
-            </p>
-          </button>
-          <button
-            onClick={() => setShowUploadResume(true)}
-            className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border border-dashed border-slate-300 group hover:border-indigo-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
-          >
-            <FolderUp className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-purple-300 to-purple-500 text-white rounded-full" />
-            <p className="text-sm group-hover:text-purple-600 transition-all duration-300">
-              Upload Existing Resume
-            </p>
-          </button>
-        </div>
+          {/* Left side - Buttons */}
+          <div className="flex flex-col gap-4 shrink-0">
+            <button
+              onClick={() => setShowCreateResume(true)}
+              className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border border-dashed border-slate-300 group hover:border-indigo-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            >
+              <PlusIcon className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-indigo-300 to-indigo-500 text-white rounded-full" />
+              <p className="text-sm group-hover:text-indigo-600 transition-all duration-300">
+                Create Resume
+              </p>
+            </button>
 
-        <hr className="my-6 border-slate-300 sm:w-[305px]" />
+            <button
+              onClick={() => setShowUploadResume(true)}
+              className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border border-dashed border-slate-300 group hover:border-indigo-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            >
+              <FolderUp className="size-11 transition-all duration-300 p-2.5 bg-linear-to-br from-purple-300 to-purple-500 text-white rounded-full" />
+              <p className="text-sm group-hover:text-purple-600 transition-all duration-300">
+                Upload Existing Resume
+              </p>
+            </button>
+          </div>
 
-        <div className="grid grid-cols-2 sm:flex flex-wrap gap-4">
-          {allResumes.map((resume, index) => {
-            const baseColor = colors[index % colors.length];
-            return (
-              <button
-                key={index}
-                onClick={() => navigate(`/app/builder/${resume._id}`)}
-                className="relative w-full sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 border group hover:shadow-lg transition-all duration-300 cursor-pointer"
-                style={{
-                  background: `linear-gradient(135deg, ${baseColor}10), ${baseColor}40`,
-                  borderColor: baseColor + "40",
-                }}
-              >
-                <FileEdit
-                  className="size-7 group-hover:scale-105 transition-all"
-                  style={{ color: baseColor }}
-                />
-                <p
-                  className="text-sm group-hover:scale-105 transition-all px-2 text-center"
-                  style={{ color: baseColor }}
+          <hr className="border-0 w-px bg-slate-300 h-auto min-h-[400px]" />
+
+          {/* Right side - Resumes grid */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {allResumes.map((resume, index) => {
+              const baseColor = colors[index % colors.length];
+              return (
+                <button
+                  key={index}
+                  onClick={() => navigate(`/app/builder/${resume._id}`)}
+                  className="relative w-full h-48 flex flex-col items-center justify-center rounded-lg gap-2 border group hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  style={{
+                    background: `linear-gradient(135deg, ${baseColor}10, ${baseColor}40)`,
+                    borderColor: baseColor + "40",
+                  }}
                 >
-                  {resume.title}
-                </p>
-                <p
-                  className="absolute bottom-1 text-[11px] text-slate-400 group-hover:text-slate-500 transition-all duration-300 px-2 text-center"
-                  style={{ color: baseColor + "90" }}
-                >
-                  Updated on {new Date(resume.updatedAt).toLocaleDateString()}
-                </p>
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  className="absolute top-1 right-1 group-hover:flex items-center hidden"
-                >
-                  <TrashIcon
-                    onClick={() => deleteResume(resume._id)}
-                    className="size-7 p-1.5 hover:bg-white/50 rounded text-slate-700 transition-colors"
+                  <FileEdit
+                    className="size-7 group-hover:scale-105 transition-all"
+                    style={{ color: baseColor }}
                   />
-                  <PencilIcon
-                    onClick={() => {
-                      setEditResumeId(resume._id);
-                      setTitle(resume.title);
-                    }}
-                    className="size-7 p-1.5 hover:bg-white/50 rounded text-slate-700 transition-colors"
-                  />
-                </div>
-              </button>
-            );
-          })}
+                  <p
+                    className="text-sm group-hover:scale-105 transition-all px-2 text-center"
+                    style={{ color: baseColor }}
+                  >
+                    {resume.title}
+                  </p>
+                  <p
+                    className="absolute bottom-1 text-[11px] text-slate-400 group-hover:text-slate-500 transition-all duration-300 px-2 text-center"
+                    style={{ color: baseColor + "90" }}
+                  >
+                    Updated on {new Date(resume.updatedAt).toLocaleDateString()}
+                  </p>
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute top-1 right-1 group-hover:flex items-center hidden"
+                  >
+                    <TrashIcon
+                      onClick={() => deleteResume(resume._id)}
+                      className="size-7 p-1.5 hover:bg-white/50 rounded text-slate-700 transition-colors"
+                    />
+                    <PencilIcon
+                      onClick={() => {
+                        setEditResumeId(resume._id);
+                        setTitle(resume.title);
+                      }}
+                      className="size-7 p-1.5 hover:bg-white/50 rounded text-slate-700 transition-colors"
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {showCreateResume && (

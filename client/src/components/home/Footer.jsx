@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-20 py-16 px-6 md:px-16 lg:px-24 xl:px-32 text-[13px] text-gray-500 bg-linear-to-r from-white via-purple-200/60 to-white mt-40">
         <div className="flex flex-wrap items-start gap-10 md:gap-[60px] xl:gap-[140px]">
           <a href="#">
-            <img src="logo.svg" alt="Logo" className="h-11 w-auto" />
+            <img src="logo1.svg" alt="Logo" className="h-11 w-auto" />
           </a>
           <div>
             <p className="text-slate-800 font-semibold">Product</p>
@@ -169,14 +169,6 @@ const Footer = () => {
           </div> */}
         </div>
       </footer>
-
-      <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-            
-                * {
-                    font-family: 'Poppins', sans-serif;
-                }
-            `}</style>
     </>
   );
 };

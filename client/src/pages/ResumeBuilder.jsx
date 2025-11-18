@@ -100,14 +100,14 @@ const ResumeBuilder = () => {
         ...prev,
         public: !prev.public,
       }));
-      toast.success(data.message || "Visibility updated successfully");
+      toast.success(data.message || "Publicity updated successfully");
     } catch (error) {
-      console.error("Error updating visibility:", error);
+      console.error("Error updating publicity:", error);
       toast.error(
-        error.response?.data?.message || "Failed to update visibility"
+        error.response?.data?.message || "Failed to update publicity"
       );
     }
-  };
+  };  
 
   const handleShare = () => {
     const frontendUrl = window.location.href.split("/app/")[0];
