@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
+
+  const openSupport = (e) => {
+    e.preventDefault();
+    setIsSupportOpen(true);
+  };
+
+  const closeSupport = () => {
+    setIsSupportOpen(false);
+  };
+
   return (
     <>
       <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-20 py-16 px-6 md:px-16 lg:px-24 xl:px-32 text-[13px] text-gray-500 bg-linear-to-r from-white via-purple-200/60 to-white mt-40">
@@ -17,7 +28,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-purple-600 transition">
+                <a
+                  href="/"
+                  onClick={openSupport}
+                  className="hover:text-purple-600 transition cursor-pointer"
+                >
                   Support
                 </a>
               </li>
@@ -169,6 +184,38 @@ const Footer = () => {
           </div> */}
         </div>
       </footer>
+
+      {isSupportOpen && (
+        <div className="fixed inset-0 z-1000 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg shadow-xl max-w-sm w-[90%] p-6">
+            <h2 className="text-lg font-semibold text-slate-900 mb-2">
+              Support & Contact
+            </h2>
+            <p className="text-sm text-slate-600 mb-2">
+              Need help or have questions about Resumio? Our support team is
+              here to help.
+            </p>
+            <p className="text-sm text-slate-800 font-medium mb-4">
+              Email:{" "}
+              <a
+                href="mailto:support@example.com"
+                className="text-purple-600 hover:underline"
+              >
+                support@example.com
+              </a>
+            </p>
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={closeSupport}
+                className="px-4 py-1.5 rounded-md bg-purple-600 text-white text-sm hover:bg-purple-700 transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
