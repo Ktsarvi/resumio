@@ -10,7 +10,7 @@ import api from "./configs/api";
 import { login, setLoading } from "./app/features/authSlice";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import Pricing from "./pages/Pricing";
+import Premium from "./pages/Premium";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const App = () => {
           <Route path="builder/:resumeId" element={<ResumeBuilder />} />
         </Route>
 
-        <Route path="pricing" element={<Pricing />} />
+        <Route path="premium" element={<Premium />} />
 
         <Route path="view/:resumeId" element={<Preview />} />
       </Routes>

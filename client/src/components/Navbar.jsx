@@ -22,7 +22,7 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center gap-4 text-sm">
           <p className="max-sm:hidden">Hi, {user?.name}</p>
-          <Link to="/pricing">
+          <Link to="/premium">
             <button
               className="bg-white hover:bg-purple-50 border border-gray-300 px-7 py-1.5 rounded-full active:scale-95 transition-all"
             >
